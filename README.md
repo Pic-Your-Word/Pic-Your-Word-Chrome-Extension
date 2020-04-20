@@ -1,2 +1,2 @@
 # Pic-Your-Word-Chrome-Extension
-A chrome extension that links to wikipedia API and instantly visualizes English scientific words / phrases on web pages.
+A chrome extension that visualizes English words and phrases on webpages using the Wikipedia API.
