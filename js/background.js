@@ -1,8 +1,9 @@
 chrome.runtime.onMessage.addListener(
     function(request, sender, sendResponse) {
         if (request.contentScriptQuery == "queryText") {
-            var url = "http://en.wikipedia.org/w/api.php?action=query&titles=\
-            " + request.searchText + "&redirects&prop=pageimages&format=json&pithumbsize=500";
+            var url = "http://en.wikipedia.org/w/api.php?action=query&titles="
+            url += request.searchText
+            url += "&redirects&prop=pageimages&format=json&pithumbsize=500";
 
             var result = {};
 
@@ -88,8 +89,8 @@ chrome.runtime.onMessage.addListener(
 
 function search_link(redirectedPageid) {
 
-    var link_url = "https://en.wikipedia.org/w/api.php?action=query\
-    &prop=info&pageids=" + redirectedPageid + "&inprop=url&format=json";
+    var link_url = "https://en.wikipedia.org/w/api.php?action=query&prop=info&pageids="
+    link_url += redirectedPageid + "&inprop=url&format=json";
 
     if (redirectedPageid != -1) {
         return new Promise((resolve, reject) => {
@@ -123,11 +124,11 @@ function search_link(redirectedPageid) {
 
 
 function search_definition(redirectedTitle, redirectedPageid, searchText) {
-    var def_url_snippet = "https://en.wikipedia.org/w/api.php?action=query&\
-    list=search&prop=info&inprop=url&utf8=&format=json&origin=*&srsearch=";
+    var def_url_snippet = "https://en.wikipedia.org/w/api.php?action=query"
+    def_url_snippet += "&list=search&prop=info&inprop=url&utf8=&format=json&origin=*&srsearch=";
 
-    var def_url_whole = "https://en.wikipedia.org/w/api.php?format=json&\
-    action=query&prop=extracts&exintro&explaintext&redirects=1&titles="
+    var def_url_whole = "https://en.wikipedia.org/w/api.php?format=json&action=query";
+    def_url_whole += "&prop=extracts&exintro&explaintext&redirects=1&titles=";
 
     var searchUrl;
     var result;
@@ -153,8 +154,9 @@ function search_definition(redirectedTitle, redirectedPageid, searchText) {
                             Object.keys(defResponse['query']['pages'])[0],
                             'extract')) {
 
-                        result = '<div class="tipDefinition">\
-                        ' + defResponse['query']['pages'][Object.keys(defResponse['query']['pages'])[0]]['extract'] + '</div>';
+                        result = '<div class="tipDefinition">';
+                        result += defResponse['query']['pages'][Object.keys(defResponse['query']['pages'])[0]]['extract']
+                        result += '</div>';
                         result = result.split('.')[0] + '.';
                     } else {
                         resolve(defResponse['query']['pages'][Object.keys(defResponse['query']['pages'])[0]]['extract'])
@@ -176,9 +178,10 @@ function search_definition(redirectedTitle, redirectedPageid, searchText) {
                     // prepare definition
                     var rest = ['query', 'search', 0, 'snippet'];
                     if (check_nested_json(defResponse, 'query', 'search', 0, 'snippet')) {
-                        result = ['<div class="tipDefinition">\
-                        ' + defResponse['query']['search'][0]['snippet'] + '\
-                        </div>', defResponse['query']['search'][0]['pageid']];
+                        let l = '<div class="tipDefinition">';
+                        l += defResponse['query']['search'][0]['snippet'] + '</div>';
+                        let r = defResponse['query']['search'][0]['pageid'];
+                        result = [l, r];
                     } else {
                         result = prepare_def_error_message();
                     }

@@ -76,18 +76,19 @@ async function createToolTip(x, y, text) {
             let bodyText = document.createElement('p');
             bodyText.className = 'cardd-text';
 
+            let inner = response['definition'];
+            console.log(response['link']);
             if (response['deftype'] == 'pagedef') {
-                bodyText.innerHTML = response['definition'] + "\
-                <a target='_blank' href=" + response['link'] + ">Wikipedia</a>";
+                bodyText.innerHTML = response['definition'];
+                bodyText.innerHTML += "<a target='_blank' href=" + response['link'] + ">Wikipedia</a>";
             } else {
                 if (response['link'] != -1) {
-                    bodyText.innerHTML = response['definition'] + '\
-                    ... ' + "<a target='_blank' href=" + response['link'] + ">Wikipedia</a>";
+                    bodyText.innerHTML = response['definition'] + '... ';
+                    bodyText.innerHTML += "<a target='_blank' href=" + response['link'] + ">Wikipedia</a>";
                 } else {
                     bodyText.innerHTML = response['definition'] + '... ';
                 }
             }
-
 
             let tooltipContainer = document.createElement('div');
             tooltipContainer.style.padding = '0 1rem 1rem 1rem';
