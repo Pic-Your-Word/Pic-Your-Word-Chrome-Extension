@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="css/bootstrap_card.css" charset="UTF-8">
+        <script type="text/javascript" src="js/jquery.min.js"></script>
+        <style media="screen">
+            hr {
+                height: 1px;
+                color: #e6e6e6;
+                background-color: #e6e6e6;
+                border: none;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div id="popupBody">
+            <div id="popupTitle">
+                <nav class="navbarr navbarr-light bg-light">
+                    <div class="popUpTitleRow">
+                        <div class="rowLeft">
+                            <img src="icons/icon.png" id="titleImg" class="d-inline-block align-top" alt="">
+                            <span> <span style="color: #2196F3; font-weight: bold;">Pic</span> Your Word</span>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+
+            <hr>
+
+            <div id="popupContent">
+                <div class="popUpRow">
+                    <div class="rowLeft">
+                        <span>On / Off</span>
+                    </div>
+                    <label class="switchButton_">
+                        <input id="stateButton_" type="checkbox" checked>
+                        <span class="sliderBox_ round"></span>
+                    </label>
+                </div>
+
+                <div class="popUpRow" >
+                    <div class="rowLeft">
+                        <span>Display Text Definition</span>
+                    </div>
+                    <label class="switchButton_">
+                        <input id="definitionButton_" type="checkbox" checked>
+                        <span class="sliderBox_ round"></span>
+                    </label>
+                </div>
+
+                <div class="popUpRow">
+                    <label for="cars">Trigger Key</label>
+
+                    <select id="triggerKey">
+                      <option value="1" selected>None</option>
+                      <option value="2">z</option>
+                    </select>
+                </div>
+                <hr>
+
+                <div class="popUpBottomRow">
+                    <p>If you have any feedback, <a style="display:inline; text-decoration: none;" href="#">let us know!</a></p>
+                </div>
+
+            </div>
+
+        </div>
+    </body>
+    <script type="text/javascript" src="js/iconPopup.js"></script>
+</html>
