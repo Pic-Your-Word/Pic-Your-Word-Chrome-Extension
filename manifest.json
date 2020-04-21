@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "Pic Your Word",
-  "description": "Find images and explainations instantly by highlighting the words.",
+  "description": "Find images and explanations instantly by highlighting the terms.",
   "version": "0.1",
   "background": {
     "scripts": ["js/background.js"],
@@ -26,8 +26,7 @@
   "permissions": [
       "webRequest",
       "storage",
-      "*://*.google.com/",
-       "*://*.wikipedia.org/"
+      "https://en.wikipedia.org/w/*"
   ],
   "web_accessible_resources": ["icons/notFound_.png"]
 }
